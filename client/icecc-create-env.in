@@ -498,7 +498,9 @@ fi
 save_stripprefix="$stripprefix"
 stripprefix=
 for extrafile in $extrafiles; do
-    add_file $extrafile
+    target=$(echo $extrafile | cut -d= -f1)
+    path=$(echo $extrafile | cut -d= -f2)
+    add_file $path $target
 done
 stripprefix="$save_stripprefix"
 
